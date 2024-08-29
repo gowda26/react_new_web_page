@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import QuoteList from './components/QuoteList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles.appContainer}>
+      <h1 style={styles.header}>Inspirational Quotes</h1>
+      <QuoteList />
     </div>
   );
 }
 
+const styles = {
+  appContainer: {
+    fontFamily: 'Arial, sans-serif',
+    padding: '20px',
+    maxWidth: '600px',
+    margin: '0 auto',
+  },
+  header: {
+    textAlign: 'center',
+    color: '#333',
+  },
+};
+
 export default App;
+
