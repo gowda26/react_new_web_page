@@ -1,38 +1,61 @@
-.App {
+/* src/App.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
   text-align: center;
+  margin-bottom: 20px;
+  color: #4a90e2;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.quote {
+  border-left: 4px solid #4a90e2;
+  margin: 20px 0;
+  padding: 15px 25px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.quote:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.quote p {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.quote p.author {
+  text-align: right;
+  font-style: italic;
+  margin-top: 10px;
+  color: #555;
+}
+/* Add a subtle hover effect to each quote */
+.quote:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.quoteContainer:hover {
+  transform: scale(1.05);
+  background-color: #f0f8ff;
 }

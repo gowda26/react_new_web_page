@@ -1,6 +1,7 @@
 // src/components/QuoteList.js
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import Quote from './Quote';
+import './QuoteList.css';
 
 const QuoteList = () => {
   const quotes = [
@@ -16,14 +17,42 @@ const QuoteList = () => {
     { text: "It always seems impossible until it's done.", author: "Nelson Mandela" },
   ];
 
+  const quoteListRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleNext = () => {
+    if (quoteListRef.current) {
+      const newScrollPosition = scrollPosition + window.innerWidth;
+      setScrollPosition(newScrollPosition);
+      quoteListRef.current.scrollTo({
+        left: newScrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handlePrev = () => {
+    if (quoteListRef.current) {
+      const newScrollPosition = Math.max(scrollPosition - window.innerWidth, 0);
+      setScrollPosition(newScrollPosition);
+      quoteListRef.current.scrollTo({
+        left: newScrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <div>
-      {quotes.map((quote, index) => (
-        <Quote key={index} text={quote.text} author={quote.author} />
-      ))}
+    <div className="quoteListContainer">
+      <button className="navButton prevButton" onClick={handlePrev}>❮</button>
+      <div className="quoteScrollContainer" ref={quoteListRef}>
+        {quotes.map((quote, index) => (
+          <Quote key={index} text={quote.text} author={quote.author} />
+        ))}
+      </div>
+      <button className="navButton nextButton" onClick={handleNext}>❯</button>
     </div>
   );
 };
 
 export default QuoteList;
-
