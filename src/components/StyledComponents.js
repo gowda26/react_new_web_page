@@ -64,4 +64,6 @@ export const Card = styled.div`
   flex-grow: 1;      /* Allow card to grow if needed */
   text-align: center;
   animation: ${fadeIn} 2s ease-in-out;
+  word-wrap: break-word; /* Ensures the text wraps within the card */
+  white-space: pre-wrap; /* Preserves white space and wraps text */
 `;
